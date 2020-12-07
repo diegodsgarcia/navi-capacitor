@@ -1,4 +1,4 @@
-package me.pagar;
+package io.test.navi;
 
 import android.os.Bundle;
 
