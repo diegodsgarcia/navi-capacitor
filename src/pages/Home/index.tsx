@@ -1,50 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import {
-  Capacitor,
-  Plugins,
-  PushNotification,
-  PushNotificationToken,
-  PushNotificationActionPerformed
-} from '@capacitor/core'
+import requestNotification, { Notification } from '../../utils/notification'
 
-const { PushNotifications } = Plugins
-
-const requestNotification = async () => {
-  const result = await PushNotifications.requestPermission()
-
-  if (result.granted) {
-    PushNotifications.register()
-  }
-
-  PushNotifications.addListener('registration', (token: PushNotificationToken) => {
-    console.log('token:', token.value)
-  })
-
-  PushNotifications.addListener('registrationError', (error) => {
-    console.log('error:', error)
-  })
-
-  PushNotifications.addListener('pushNotificationReceived', (notifiation: PushNotification) => {
-    console.log('recebida!', notifiation)
-  })
-
-  PushNotifications.addListener('pushNotificationActionPerformed', (notifiation: PushNotificationActionPerformed) => {
-    console.log('quando tocada na notificação!', notifiation)
-  })
-}
+import * as S from './styled'
 
 const Home = () => {
+  const [notification, setNotification] = useState<Notification>({
+    token: '',
+    error: '',
+    message: null,
+  })
+
   useEffect(() => {
-    requestNotification()
+    requestNotification(setNotification)
   }, [])
 
   return (
-    <>
-      <header>
-        Notification
-      </header>
-    </>
+    <S.Container>
+      <S.Button>
+        Biometria
+      </S.Button>
+      <S.Text>Token: { notification.token}</S.Text>
+
+    </S.Container>
   )
 }
 
