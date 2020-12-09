@@ -1468,6 +1468,20 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
+"@ionic-native/core@^5.30.0":
+  version "5.30.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.30.0.tgz#f377c10c680da9b2978f5cbaff93de2ded0cca97"
+  integrity sha512-UkktFoSOAt/lgsc1nxnwjCul29yD06qHNjyv7/K7JxhqeJrqPBKihnkLu7OTAe52KdFBozRxLKDP6HWcGderqA==
+  dependencies:
+    "@types/cordova" latest
+
+"@ionic-native/fingerprint-aio@^5.30.0":
+  version "5.30.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/fingerprint-aio/-/fingerprint-aio-5.30.0.tgz#fab31663eac7f927f7991c6df26f213ec523f53b"
+  integrity sha512-ln65AZ3/bwe7djZmGqCPiYQ6M8E/cyNs7wSs4RrQUmCM4kVvvNxqJpjyjEnszWjN2WWR8GK664OFTlU3gwYSyQ==
+  dependencies:
+    "@types/cordova" latest
+
 "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -1696,6 +1710,11 @@
     strip-ansi "^5.2.0"
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
+
+"@types/cordova@latest":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
+  integrity sha1-6nrd907Ow9dimCegw54smt3HPQQ=
 
 "@types/history@*":
   version "4.7.8"
@@ -2849,6 +2868,11 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+
+cordova-plugin-fingerprint-aio@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-fingerprint-aio/-/cordova-plugin-fingerprint-aio-4.0.1.tgz#62a1808147a5360044b689dbada2f619c2bff397"
+  integrity sha512-WMXjVSZYhlREBXwYLL75Lx3Gf7dEBGCikLLzZ8V4ldEcDkbaYQxUbkisuQQSg/np2ZX8efEAdKLd7hm2gveD+w==
 
 core-js-compat@^3.6.2:
   version "3.6.5"
