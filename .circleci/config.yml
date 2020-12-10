@@ -28,50 +28,27 @@ jobs:
             - node_modules
 
   macos-build:
-    working_directory: ~/navi-capacitor
+    working_directory: ~/navi-capacitor/ios/App
     macos:
       xcode: 11.3.0
-    environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: test
-
     steps:
-      - checkout
       - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
       - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-      - run: yarn install
+          key: pods-v1-{{ checksum "Podfile.lock" }}-{{ arch }}
+      - run: pod install
+      - run: bundle install
       - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-          paths:
-            - ~/.cache/yarn
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-          paths:
-            - node_modules
-      - restore_cache:
-          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
-      - restore_cache:
-          key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
-      - run: yarn build && yarn setup && yarn sync
-      - run:
-          command: pod install
-          working_directory: ios
-      - run:
-          command: bundle install
-          working_directory: ios
-      - save_cache:
-          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
       - save_cache:
-          key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
+          key: pods-v1-{{ checksum "Podfile.lock" }}-{{ arch }}
           paths:
             - ios/Pods
       - run:
           name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
+          command: fastlane build
           working_directory: ios
       - store_artifacts:
           path: output
@@ -112,5 +89,8 @@ workflows:
     jobs:
       - node
       - android-build:
+          requires:
+            - node
+      - macos-build:
           requires:
             - node

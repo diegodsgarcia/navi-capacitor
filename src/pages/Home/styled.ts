@@ -11,11 +11,12 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   width: 100%;
-  padding: 1rem 0;
   border: 0;
   background-color: #000;
   color: #fff;
   cursor: pointer;
+  font-size: 2rem;
+  height: 5rem;
 `
 
 export const Text = styled.p`

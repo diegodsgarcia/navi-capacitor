@@ -1,0 +1,18 @@
+{
+  "appId": "io.test.navi",
+  "appName": "navi-capacitor",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "linuxAndroidStudioPath": "/usr/bin/android-studio",
+  "server": {
+    "url": "http://192.168.0.105:3000",
+    "cleartext": true
+  },
+  "cordova": {}
+}
